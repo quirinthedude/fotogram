@@ -1,137 +1,163 @@
-const images = [
-  { src: 'img/Ausgang.jpeg',
+const IMAGES = [
+  { src: 'img/full/Ausgang.jpeg',
      alt: 'Katzen vor dem Gartentor',
       caption: 'Kiwi und Litchi besprechen ihr Vorgehen, die Welt zu erobern' },
 
-  { src: 'img/BreakIsOver.jpeg',
+  { src: 'img/full/BreakIsOver.jpeg',
      alt: 'Katze vor dem Fenster',
       caption: 'Nach einem gemütlichen Mittagsschlaf entschliesst sich Kiwi zu einem neuen Abenteuer' },
 
-  { src: 'img/CatYoga.jpeg',
+  { src: 'img/full/CatYoga.jpeg',
      alt: 'eingerollte Katze auf einem Sitzkissen',
       caption: 'Yoga macht Kiwi am liebsten gleich nach dem Aufstehen' },
 
-  { src: 'img/Cuddleboy.jpeg',
+  { src: 'img/full/Cuddleboy.jpeg',
      alt: 'schlafende Katze auf einem Bürostuhl',
       caption: 'Zuerst hat sich Kiwi sein Blatt geschnappt und ist dann nach dem Spielen damit auf seinem Lieblingsstuhl eingeschlafen' },
 
-  { src: 'img/CutenessOverload.jpeg',
+  { src: 'img/full/CutenessOverload.jpeg',
      alt: 'Katze in einem Reisekoffer',
       caption: 'Litchi findet, dass erste was man in den Koffer packen sollte, ist sie selbst' },
 
-  { src: 'img/Cutie.jpeg',
+  { src: 'img/full/Cutie.jpeg',
      alt: 'süsse Katze auf dem Tisch im Gegenlicht',
      caption: 'Litchi beobachtet das Geschehen' },
 
-  { src: 'img/FlagAndScrap.jpeg',
+  { src: 'img/full/FlagAndScrap.jpeg',
      alt: 'zwei Katzen in Flur',
       caption: 'Litchi und Kiwi auf ihrem Lieblingsplatz im Flur' },
 
-  { src: 'img/GuardiansOfTheFlag.jpeg',
+  { src: 'img/full/GuardiansOfTheFlag.jpeg',
      alt: 'zwei Katzen entspannen auf der Scchweizer Fahne',
       caption: 'Kiwi und Litchi finden, es gibt nicht gemütlicheres, als die Schweizer Fahne und bewachen sie mit Adleraugen' },
 
-  { src: 'img/HappyAmMac.jpeg',
+  { src: 'img/full/HappyAmMac.jpeg',
      alt: 'Katze blinzelt vor dem Fenster',
       caption: 'Litchi blinzelt von ihrem Fensterplatz und bewacht den Mac' },
 
-  { src: 'img/HmThatSmell.jpeg',
+  { src: 'img/full/HmThatSmell.jpeg',
      alt: 'Katze liegt zur Hälfte auf 2 Paar Schuhen',
       caption: 'Kiwi kennt keinen herrlicheren Geruch als den von alten Schuhen' },
 
-  { src: 'img/Hmmmmmmnomnom.jpeg',
+  { src: 'img/full/Hmmmmmmnomnom.jpeg',
      alt: 'Katze beschnuppert eine Schale Pistazien',
       caption: 'Kiwi beschnuppert die Unwiderstehlichkeit von Pistazien' },
 
-  { src: 'img/Jellybeans.jpeg',
+  { src: 'img/full/Jellybeans.jpeg',
      alt: 'die Pfote einer Katze',
       caption: 'Kiwi beweist, dass seine Poten frisch geputzt sind' },
 
-  { src: 'img/KiwiAnDerTür.jpeg',
+  { src: 'img/full/KiwiAnDerTür.jpeg',
      alt: 'Katze an einer Balkontüre',
       caption: 'Kiwi will wissen, was da draussen am Balkon los ist' },
 
-  { src: 'img/KiwiAndLitchiOnTheFloor.jpeg',
+  { src: 'img/full/KiwiAndLitchiOnTheFloor.jpeg',
      alt: 'two cats smiling in the camera',
       caption: 'Hey, das ist eine Katzensache!' },
 
-  { src: 'img/KiwiAufDemBett.jpeg',
+  { src: 'img/full/KiwiAufDemBett.jpeg',
      alt: 'Katze in Sphinx-Stellung auf dem Bett',
       caption: 'Kiwi überlegt, ob er sein Refugium auf dem Bett teilen soll' },
 
-  { src: 'img/KiwiOnTheHunt.jpeg',
+  { src: 'img/full/KiwiOnTheHunt.jpeg',
      alt: 'Katze lauert an der Ecke eines Tisches',
       caption: 'Kiwi, der Herrscher des Tisches belauert seine Beute da unten' },
 
-  { src: 'img/KiwiVerspielt.jpeg',
+  { src: 'img/full/KiwiVerspielt.jpeg',
      alt: 'Katze auf dem Rücken liegend',
       caption: 'Kiwi entspannt vor der Wohnungstür' },
 
-  { src: 'img/KiwiWartetamFenster.jpeg',
+  { src: 'img/full/KiwiWartetamFenster.jpeg',
      alt: 'Katze hinter dem Fenster versteckt',
       caption: 'Kiwi schaut, wer da kommt' },
 
-  { src: 'img/LeaveItUpToMe.jpeg',
+  { src: 'img/full/LeaveItUpToMe.jpeg',
      alt: 'Katze, die hinter dem Kissen etwas sucht',
       caption: 'Kiwi findet immer, wonach er sucht' },
 
-  { src: 'img/LeaveMeAlone.jpeg',
+  { src: 'img/full/LeaveMeAlone.jpeg',
      alt: 'Katze verdeckt sich ihr Augen',
       caption: 'Kiwi findet es einfach zu hell' },
 
-  { src: 'img/Lipstick.jpeg',
+  { src: 'img/full/Lipstick.jpeg',
      alt: 'Katze mit einem roten Gegenstand vor der Nase',
       caption: 'Litchi will mal eine neue Farbe für ihren Lippenstift probieren' },
 
-  { src: 'img/LitchiLoaf.jpeg',
+  { src: 'img/full/LitchiLoaf.jpeg',
      alt: 'Katze vor einem Schrank',
       caption: 'Litchi in Brot-Pose' },
 
-  { src: 'img/LitchiSpeist.jpeg',
+  { src: 'img/full/LitchiSpeist.jpeg',
      alt: 'Katze vor ihrer Futterschüssel',
       caption: 'Litchi: "Missachtung des Gerichts!"' },
 
-  { src: 'img/LitchiTheCoder.jpeg',
+  { src: 'img/full/LitchiTheCoder.jpeg',
      alt: 'Katze auf einem Laptop',
       caption: 'Litchi findet den Fehler in der Responsiveness' },
 
-  { src: 'img/LithchiTheGuardian.jpeg',
+  { src: 'img/full/LithchiTheGuardian.jpeg',
      alt: 'Katze vor einem Gartentor',
       caption: 'Litchi bewacht den Garten' },
 
-  { src: 'img/MasterIsMeditating.jpeg',
+  { src: 'img/full/MasterIsMeditating.jpeg',
      alt: 'Katze schläft auf dem Tisch',
       caption: 'Kiwi hält sein Mittagsschläfchen' },
 
-  { src: 'img/MumIsPlayingWithMe.jpeg',
+  { src: 'img/full/MumIsPlayingWithMe.jpeg',
      alt: 'Katze an Pistazienschalen',
       caption: 'Kiwi wird mit Pistazienschalen verziert' },
 
-  { src: 'img/PeacefulRest.jpeg',
+  { src: 'img/full/PeacefulRest.jpeg',
      alt: 'Katzen liegen auf einem gefliessten Boden',
       caption: '"Es ist warm, und der Boden kühl!"' },
 
-  { src: 'img/Predators.jpeg',
+  { src: 'img/full/Predators.jpeg',
      alt: 'Katzen auf dem Küchentisch',
       caption: '"Das ist unser Snack!"' },
 
-  { src: 'img/ReadyForPeticure.jpeg',
+  { src: 'img/full/ReadyForPeticure.jpeg',
      alt: 'Katzenpfoten',
       caption: '"Zeigt her Eure Füsse..."' },
 
-  { src: 'img/Sunflower.jpeg',
+  { src: 'img/full/Sunflower.jpeg',
      alt: 'Katzen mit einer Sonnenblume',
       caption: '"Hm, diese Blume riecht aber gut!"' },
 
-  { src: 'img/SuoergirlWithPlant.jpeg',
+  { src: 'img/full/SuoergirlWithPlant.jpeg',
      alt: 'Katze am Fenster',
       caption: 'Litchi, the Supergirl rises' },
 
-  { src: 'img/TheMasterAwakes.jpeg',
+  { src: 'img/full/TheMasterAwakes.jpeg',
      alt: 'Katze beim Nickerchen',
       caption: '"Nun, da meine Untertanen anwesend sind, kann ich aufstehen!"' },
 
-  { src: 'img/ThereIsSomething.jpeg',
+  { src: 'img/full/ThereIsSomething.jpeg',
      alt: 'Katzen auf einem Küchentisch',
       caption: 'Snacks, Snacks, Snacks' }
-]
+];
+
+const THUMBNAIL = document.getElementById('thumbnail-container')
+
+function thumbPath(fullScreen) {
+    // img/full/x.jpeg -> img/thumbs/x.jpeg //
+    return fullScreen.replace('img/full/', 'img/thumbs/')
+}
+
+function renderGallery() {
+    let html ='';
+    for (let i = 0; i < IMAGES.length; i++) {
+        let img = IMAGES[i];
+        html += `
+        <article>
+          <figure>
+            <img src="${thumbPath(img.src)}" alt="${img.alt}"
+              onclick="openLightbox('${img.src}', '${img.caption}', '${img.alt}')">
+            <figcaption>${img.caption}</figcaption>
+          </figure>
+        </article> 
+        `;
+    }
+    THUMBNAIL.innerHTML = html; // alles auf einmal ins DOM //
+}
+
+renderGallery();
