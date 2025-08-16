@@ -1,0 +1,82 @@
+/* === CSS Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* Basis für Rems */
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  color: #ffff;
+  background: #000;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Bilder responsiv */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Verstecktes Element */
+[hidden] {
+  display: none !important;
+}
+
+/* header */
+header {
+  display: flex;
+  justify-content: center;
+  height: 128px;
+}
+
+.fotogram_logo {
+  height: 112px;
+  width: auto;
+}
+/* main */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px; 
+  box-sizing: border-box;
+  box-shadow: 0 0 16px #fff;
+  margin: 24px;
+  flex: 1;
+}
+/* section gallery */
+.gallery {
+  display: grid;
+
+}
+
+.gallery h2 {
+  text-align: center;
+  text-shadow: 0 0 8px #fff;
+  border: 0px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 16px #fff;
+  display: inline-block;   /* Box nur so breit wie der Text */
+  padding: 0 12px;         /* etwas Luft links/rechts */
+  margin-top: -24px;       /* hochziehen in den Rahmen */
+  background: rgba(0, 0, 0, 0.2);        /* gleicht den Hintergrund vom main */
+  font-size: 1.5rem;
+  color: #fff;
+}

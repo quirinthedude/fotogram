@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fotogram</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+  <header>
+    <h1>
+      <img src="/img/Fotogram_Logo.svg" class="fotogram_logo" alt="Fotogram_Logo">
+    </h1>
+    <!-- <nav aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#gallery">Galerie</a></li>
+        <li><a href="#about">Über</a></li>
+      </ul>
+    </nav>
+    (Falls es noch zu irgendeinem Filter, oder anderen Optionen kommt) -->
+  </header>
+
+  <main class="main-content">
+    <section class="gallery">
+      <h2>Bildergalerie</h2>
+      <div id="thumbnail-container">
+        <!-- Thumbnails werden per JavaScript eingefügt -->
+      </div>
+    </section>
+
+    <aside id="lightbox" hidden>
+      <button id="close-btn" aria-label="Detailansicht schließen">×</button>
+      <figure>
+        <img id="lightbox-img" src="" alt="">
+        <figcaption id="lightbox-caption"></figcaption>
+      </figure>
+      <button id="prev-btn" aria-label="Vorheriges Bild">⟨</button>
+      <button id="next-btn" aria-label="Nächstes Bild">⟩</button>
+    </aside>
+
+    <section id="about">
+      <h2>Über Fotogram</h2>
+      <p>Eine kleine Galerie als Übungsprojekt.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Fotogram</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
