@@ -160,4 +160,17 @@ function renderGallery() {
     THUMBNAIL.innerHTML = html; // alles auf einmal ins DOM //
 }
 
+function openLightbox(src, caption, alt) {
+    const FULLSIZE = document.getElementById('lightbox-img');
+    const CAPTION = document.getElementById('lightbox-caption');
+    const VISIBILITY = document.getElementById('lightbox');
+
+    FULLSIZE.setAttribute('src', src);
+    FULLSIZE.setAttribute('alt', alt);
+
+    CAPTION.textContent = caption;
+
+    VISIBILITY.hidden = false;
+
+}
 renderGallery();
