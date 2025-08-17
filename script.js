@@ -136,7 +136,8 @@ const IMAGES = [
       caption: 'Snacks, Snacks, Snacks' }
 ];
 
-const THUMBNAIL = document.getElementById('thumbnail-container')
+const THUMBNAIL = document.getElementById('thumbnail-container');
+let currentObject = 0;
 
 function thumbPath(fullScreen) {
     // img/full/x.jpeg -> img/thumbs/x.jpeg //
@@ -151,7 +152,7 @@ function renderGallery() {
         <article>
           <figure>
             <img src="${thumbPath(img.src)}" alt="${img.alt}"
-              onclick="openLightbox('${img.src}', '${img.caption}', '${img.alt}')">
+              onclick="openByIndex('${i}')">
             <figcaption>${img.caption}</figcaption>
           </figure>
         </article> 
@@ -160,9 +161,16 @@ function renderGallery() {
     THUMBNAIL.innerHTML = html; // alles auf einmal ins DOM //
 }
 
+function openByIndex(i) {
+    currentObject = i;
+    const {SRC, ALT, CAPTION} = IMAGES[i];
+    const IMG = document.getElementById('lightbox_img');
+
+}
+
 function openLightbox(src, caption, alt) {
-    const FULLSIZE = document.getElementById('lightbox-img');
-    const CAPTION = document.getElementById('lightbox-caption');
+    const FULLSIZE = document.getElementById('lightbox_img');
+    const CAPTION = document.getElementById('lightbox_caption');
     const VISIBILITY = document.getElementById('lightbox');
 
     FULLSIZE.setAttribute('src', src);
@@ -179,7 +187,7 @@ function closeLightbox() {
 }
 
 function prevButton() {
-    const ACTUALIMG = document.querySelector('#lightbox-img');
+    const ACTUALIMG = document.querySelector('#lightbox_img');
     console.log(ACTUALIMG);
 }
 renderGallery();
