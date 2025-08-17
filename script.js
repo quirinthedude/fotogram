@@ -136,7 +136,7 @@ const IMAGES = [
       caption: 'Snacks, Snacks, Snacks' }
 ];
 
-const THUMBNAIL = document.getElementById('thumbnail-container');
+const THUMBNAIL = document.getElementById('thumbnail_container');
 let currentObject = 0;
 
 function thumbPath(fullScreen) {
@@ -152,7 +152,7 @@ function renderGallery() {
         <article>
           <figure>
             <img src="${thumbPath(img.src)}" alt="${img.alt}"
-              onclick="openByIndex('${i}')">
+              onclick="openByIndex(${i})">
             <figcaption>${img.caption}</figcaption>
           </figure>
         </article> 
@@ -161,22 +161,17 @@ function renderGallery() {
     THUMBNAIL.innerHTML = html; // alles auf einmal ins DOM //
 }
 
-function openByIndex(i) {
+function openByIndex(i) { //openLightbox 2.0 //
     currentObject = i;
-    const {SRC, ALT, CAPTION} = IMAGES[i];
+    const {src, alt, caption} = IMAGES[i];
     const IMG = document.getElementById('lightbox_img');
-
-}
-
-function openLightbox(src, caption, alt) {
-    const FULLSIZE = document.getElementById('lightbox_img');
-    const CAPTION = document.getElementById('lightbox_caption');
+    const CAP = document.getElementById('lightbox_caption');
     const VISIBILITY = document.getElementById('lightbox');
 
-    FULLSIZE.setAttribute('src', src);
-    FULLSIZE.setAttribute('alt', alt);
 
-    CAPTION.textContent = caption;
+    IMG.src = src;
+    IMG.alt = alt;
+    CAP.textContent = caption;
 
     VISIBILITY.hidden = false;
 }
@@ -187,7 +182,22 @@ function closeLightbox() {
 }
 
 function prevButton() {
-    const ACTUALIMG = document.querySelector('#lightbox_img');
-    console.log(ACTUALIMG);
+    if (currentObject === 0) {
+        currentObject = IMAGES.length - 1;
+    }
+    else {
+        currentObject--;
+    }
+    openByIndex(currentObject);
+}
+
+function nextButton() {
+    if (currentObject === (IMAGES.length - 1)) {
+        currentObject = 0;
+    } 
+    else {
+        currentObject++;
+    }
+    openByIndex(currentObject);
 }
 renderGallery();
