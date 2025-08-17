@@ -51,25 +51,20 @@ header {
 }
 /* main */
 main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   border-radius: 8px; 
   box-sizing: border-box;
   box-shadow: 0 0 16px #fff;
-  margin: 24px;
-  flex: 1;
-}
-
-.main-content {
-  width: 100%;
+  margin: 16px;
 }
 
 /* section gallery */
 .gallery {
   width: min(1200px, 100%);
-  margin-inline: auto;
+  /* margin-inline: auto; */
+  padding-left: 24px;
+  padding-right: 32px;
+  padding-bottom: 24px;
+
 }
 
 .gallery h2 {
@@ -80,11 +75,11 @@ main {
   box-shadow: 0 0 16px #fff;
   display: inline-block;   /* Box nur so breit wie der Text */
   padding: 0 12px;         /* etwas Luft links/rechts */
-  margin-top: -32px;       /* hochziehen in den Rahmen */
-  background: rgba(0, 0, 0, 0.2);        /* gleicht den Hintergrund vom main */
+  margin-top: -56px;       /* hochziehen in den Rahmen */
+  background: rgba(255, 255, 255, 0.9);        /* gleicht den Hintergrund vom main */
   font-size: 1.5rem;
-  color: #fff;
-  margin-bottom: 16px;
+  color: #000;
+  /* margin-bottom: 16px; */
 }
 
 #thumbnail-container {
