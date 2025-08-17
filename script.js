@@ -5,7 +5,7 @@ const IMAGES = [
 
   { src: 'img/full/BreakIsOver.jpeg',
      alt: 'Katze vor dem Fenster',
-      caption: 'Nach einem gemütlichen Mittagsschlaf entschliesst sich Kiwi zu einem neuen Abenteuer' },
+      caption: 'Mittagsschlaf, auf in ein neues Abenteuer' },
 
   { src: 'img/full/CatYoga.jpeg',
      alt: 'eingerollte Katze auf einem Sitzkissen',
@@ -13,11 +13,11 @@ const IMAGES = [
 
   { src: 'img/full/Cuddleboy.jpeg',
      alt: 'schlafende Katze auf einem Bürostuhl',
-      caption: 'Zuerst hat sich Kiwi sein Blatt geschnappt und ist dann nach dem Spielen damit auf seinem Lieblingsstuhl eingeschlafen' },
+      caption: 'Kiwi mit seiner Eroberung ist eingeschlafen' },
 
   { src: 'img/full/CutenessOverload.jpeg',
      alt: 'Katze in einem Reisekoffer',
-      caption: 'Litchi findet, dass erste was man in den Koffer packen sollte, ist sie selbst' },
+      caption: '"Nimm mich mit, lass mich nicht zurück!"' },
 
   { src: 'img/full/Cutie.jpeg',
      alt: 'süsse Katze auf dem Tisch im Gegenlicht',
@@ -29,7 +29,7 @@ const IMAGES = [
 
   { src: 'img/full/GuardiansOfTheFlag.jpeg',
      alt: 'zwei Katzen entspannen auf der Scchweizer Fahne',
-      caption: 'Kiwi und Litchi finden, es gibt nicht gemütlicheres, als die Schweizer Fahne und bewachen sie mit Adleraugen' },
+      caption: 'Kiwi und Litchi bewachen die Schweizer Fahne mit Adleraugen' },
 
   { src: 'img/full/HappyAmMac.jpeg',
      alt: 'Katze blinzelt vor dem Fenster',
@@ -61,7 +61,7 @@ const IMAGES = [
 
   { src: 'img/full/KiwiOnTheHunt.jpeg',
      alt: 'Katze lauert an der Ecke eines Tisches',
-      caption: 'Kiwi, der Herrscher des Tisches belauert seine Beute da unten' },
+      caption: 'Kiwi, der Herrscher des Tisches belauert seine Beute' },
 
   { src: 'img/full/KiwiVerspielt.jpeg',
      alt: 'Katze auf dem Rücken liegend',

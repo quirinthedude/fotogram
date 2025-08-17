@@ -117,7 +117,93 @@ main {
 #thumbnail_container figure {
   margin: 0;
 }
+
 /* thumbnail braucht keine Beschreibung und nicht noch mehr Abstand */
 #thumbnail_container figcaption {
   display: none;
+}
+
+/* Lightbox Overlay */
+#lightbox[hidden] { display: none !important; } /* falls dein globales [hidden] fehlt */
+
+#lightbox {
+  position: fixed;
+  inset: 0;                    /* top/right/bottom/left: 0 */
+  background: rgba(0,0,0,0.8); /* dunkler Hintergrund */
+  display: grid;
+  place-items: center;         /* Inhalt zentrieren */
+  padding: 24px;
+  z-index: 1000;               /* über Header/Footer */
+}
+
+#lightbox figure {
+  position: relative;
+  max-width: min(90vw, 1200px);
+  max-height: 85vh;
+  margin: 0;
+}
+
+#lightbox_img {
+  max-width: 100%;
+  max-height: 75vh;
+  border-radius: 8px;
+  box-shadow: 0 0 24px rgba(255,255,255,0.2);
+  display: block;
+}
+
+#lightbox_caption {
+  margin-top: 8px;
+  text-align: center;
+  color: #fff;
+  line-height: 1.4;
+}
+#close_btn,
+#prev_btn,
+#next_btn {
+  position: absolute;                  /* relativ zum #lightbox-Overlay */
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+
+/* Positionen */
+#close_btn { 
+  top: 24px; 
+  right: 24px; 
+}
+
+#prev_btn  { 
+  left: 24px; 
+  top: 50%; 
+  transform: translateY(-50%); 
+}
+
+#next_btn  { 
+  right: 24px; 
+  top: 50%; 
+  transform: translateY(-50%); 
+}
+
+/* Hover-Feedback */
+#close_btn:hover,
+#prev_btn:hover,
+#next_btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+
+
+
+/**** responsiveness *****/
+@media (max-width: 520px) {
+  #close_btn, #prev_btn, #next_btn { font-size: 20px; padding: 8px 12px; }
+  #lightbox_img { max-height: 65vh; }
 }
