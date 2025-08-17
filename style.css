@@ -62,7 +62,7 @@ main {
   width: min(1200px, 100%);
   /* margin-inline: auto; */
   padding-left: 24px;
-  padding-right: 32px;
+  padding-right: 24px;
   padding-bottom: 24px;
 
 }
@@ -79,7 +79,7 @@ main {
   background: rgba(255, 255, 255, 0.9);        /* gleicht den Hintergrund vom main */
   font-size: 1.5rem;
   color: #000;
-  /* margin-bottom: 16px; */
+  margin-bottom: 16px;
 }
 
 #thumbnail-container {
