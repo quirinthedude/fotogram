@@ -179,6 +179,7 @@ function closeLightbox() {
 }
 
 function prevButton() {
-    const ACTUALIMG = false;
+    const ACTUALIMG = document.querySelector('#lightbox-img');
+    console.log(ACTUALIMG);
 }
 renderGallery();
