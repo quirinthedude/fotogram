@@ -171,6 +171,14 @@ function openLightbox(src, caption, alt) {
     CAPTION.textContent = caption;
 
     VISIBILITY.hidden = false;
+}
 
+function closeLightbox() {
+    const VISIBILITY = document.getElementById('lightbox');
+    VISIBILITY.hidden = true;
+}
+
+function prevButton() {
+    const ACTUALIMG = false;
 }
 renderGallery();
