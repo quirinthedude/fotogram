@@ -161,43 +161,95 @@ function renderGallery() {
     THUMBNAIL.innerHTML = html; // alles auf einmal ins DOM //
 }
 
-function openByIndex(i) { //openLightbox 2.0 //
-    currentObject = i;
-    const {src, alt, caption} = IMAGES[i];
-    const IMG = document.getElementById('lightbox_img');
-    const CAP = document.getElementById('lightbox_caption');
-    const VISIBILITY = document.getElementById('lightbox');
+// aside JS
+// function openByIndex(i) { //openLightbox 2.0 //
+//     currentObject = i;
+//     const {src, alt, caption} = IMAGES[i];
+//     const IMG = document.getElementById('lightbox_img');
+//     const CAP = document.getElementById('lightbox_caption');
+//     const VISIBILITY = document.getElementById('lightbox');
 
 
-    IMG.src = src;
-    IMG.alt = alt;
-    CAP.textContent = caption;
+//     IMG.src = src;
+//     IMG.alt = alt;
+//     CAP.textContent = caption;
 
-    VISIBILITY.hidden = false;
+//     VISIBILITY.hidden = false;
+// }
+
+// function closeLightbox() {
+//     const VISIBILITY = document.getElementById('lightbox');
+//     VISIBILITY.hidden = true;
+// }
+
+// function prevButton() {
+//     if (currentObject === 0) {
+//         currentObject = IMAGES.length - 1;
+//     }
+//     else {
+//         currentObject--;
+//     }
+//     openByIndex(currentObject);
+// }
+
+// function nextButton() {
+//     if (currentObject === (IMAGES.length - 1)) {
+//         currentObject = 0;
+//     } 
+//     else {
+//         currentObject++;
+//     }
+//     openByIndex(currentObject);
+// }
+
+//  dialog JS 
+
+
+function ensureDialogOpen(dlg) {
+  if (!dlg.open) dlg.showModal();      // wir nutzen Modal mit Backdrop
+}
+
+function openByIndex(i) {
+  currentObject = Number(i);
+  const { src, alt, caption } = IMAGES[currentObject];
+
+  const IMG = document.getElementById('lightbox_img');
+  const CAP = document.getElementById('lightbox_caption');
+  const DLG = document.getElementById('lightbox');
+
+  IMG.src = src;
+  IMG.alt = alt;
+  CAP.textContent = caption;
+
+  ensureDialogOpen(DLG);
+}
+
+function openLightbox(src, caption, alt) {
+  const IMG = document.getElementById('lightbox_img');
+  const CAP = document.getElementById('lightbox_caption');
+  const DLG = document.getElementById('lightbox');
+
+  IMG.src = src;
+  IMG.alt = alt;
+  CAP.textContent = caption;
+
+  ensureDialogOpen(DLG);
 }
 
 function closeLightbox() {
-    const VISIBILITY = document.getElementById('lightbox');
-    VISIBILITY.hidden = true;
+  const DLG = document.getElementById('lightbox');
+  if (DLG.open) DLG.close();
 }
 
-function prevButton() {
-    if (currentObject === 0) {
-        currentObject = IMAGES.length - 1;
-    }
-    else {
-        currentObject--;
-    }
-    openByIndex(currentObject);
+// Navigation (wie gehabt)
+function changeImage(step) {
+  currentObject = (currentObject + step + IMAGES.length) % IMAGES.length;
+  openByIndex(currentObject);
 }
+function nextButton() { changeImage(1); }
+function prevButton() { changeImage(-1); }
 
-function nextButton() {
-    if (currentObject === (IMAGES.length - 1)) {
-        currentObject = 0;
-    } 
-    else {
-        currentObject++;
-    }
-    openByIndex(currentObject);
-}
+// end of dialog
+
+
 renderGallery();

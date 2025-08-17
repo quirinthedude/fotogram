@@ -32,7 +32,7 @@
       </div>
     </section>
 
-    <aside id="lightbox" hidden>
+    <!-- <aside id="lightbox" hidden>
       <button id="close_btn" aria-label="Detailansicht schließen" onclick="closeLightbox()">×</button>
       <figure>
         <img id="lightbox_img" src="" alt="">
@@ -40,7 +40,17 @@
       </figure>
       <button id="prev-btn" aria-label="Vorheriges Bild" onclick="prevButton()">⟨</button>
       <button id="next-btn" aria-label="Nächstes Bild" onclick="nextButton()">⟩</button>
-    </aside>
+    </aside> -->
+
+<dialog id="lightbox" onclick="if (event.target === this) closeLightbox()">
+  <button id="close_btn" onclick="closeLightbox()" aria-label="Detailansicht schließen">×</button>
+  <figure>
+    <img id="lightbox_img" alt="">
+    <figcaption id="lightbox_caption"></figcaption>
+  </figure>
+  <button id="prev_btn" onclick="prevButton()" aria-label="Vorheriges Bild">⟨</button>
+  <button id="next_btn" onclick="nextButton()" aria-label="Nächstes Bild">⟩</button>
+</dialog>
 
   
   </main>
