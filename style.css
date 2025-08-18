@@ -6,7 +6,8 @@
 }
 
 html {
-  font-size: 16px; /* Basis für Rems */
+  font-size: 16px;
+  /* Basis für Rems */
 }
 
 body {
@@ -41,45 +42,53 @@ img {
 /* header */
 header {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   height: 128px;
 }
 
 .fotogram_logo {
-  height: 112px;
+  padding-top: 8%;
+  padding-left: 8%;
+  padding-right: 8%;
+  height: 96px;
   width: auto;
 }
+
 /* main */
 main {
-  border-radius: 8px; 
+  border-radius: 8px;
   box-sizing: border-box;
   box-shadow: 0 0 16px #fff;
   margin: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 /* section gallery */
 .gallery {
   width: min(1200px, 100%);
-  /* margin-inline: auto; */
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 24px;
-
+  text-align: center;
 }
 
 .gallery h2 {
-  text-align: center;
-  text-shadow: 0 0 8px #fff;
-  border: 0px solid #fff;
+  display: block;
+  width: max-content;
+  /* schrumpft auf Textbreite */
+  margin: -16px auto 16px;
+  /* und zentriert als Block */
+  padding: 0 12px;
+
   border-radius: 8px;
   box-shadow: 0 0 16px #fff;
-  display: inline-block;   /* Box nur so breit wie der Text */
-  padding: 0 12px;         /* etwas Luft links/rechts */
-  margin-top: -56px;       /* hochziehen in den Rahmen */
-  background: rgba(255, 255, 255, 0.9);        /* gleicht den Hintergrund vom main */
-  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
   color: #000;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  text-shadow: 0 0 8px #fff;
 }
 
 #thumbnail_container {
@@ -110,7 +119,7 @@ main {
 }
 
 #thumbnail_container img:hover {
-  transform: scale(1.1);
+  transform: scale(1.6);
 
 }
 
@@ -124,16 +133,24 @@ main {
 }
 
 /* Lightbox Overlay */
-#lightbox[hidden] { display: none !important; } /* falls dein globales [hidden] fehlt */
+#lightbox[hidden] {
+  display: none !important;
+}
+
+/* falls dein globales [hidden] fehlt */
 
 #lightbox {
   position: fixed;
-  inset: 0;                    /* top/right/bottom/left: 0 */
-  background: rgba(0,0,0,0.8); /* dunkler Hintergrund */
+  inset: 0;
+  /* top/right/bottom/left: 0 */
+  background: rgba(0, 0, 0, 0.8);
+  /* dunkler Hintergrund */
   display: grid;
-  place-items: center;         /* Inhalt zentrieren */
+  place-items: center;
+  /* Inhalt zentrieren */
   padding: 24px;
-  z-index: 1000;               /* über Header/Footer */
+  z-index: 1000;
+  /* über Header/Footer */
 }
 
 #lightbox figure {
@@ -141,30 +158,49 @@ main {
   max-width: min(90vw, 1200px);
   max-height: 85vh;
   margin: 0;
+
+  text-align: center; /* hilft, Caption mittig zu setzen (s.u.) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #lightbox_img {
   max-width: 100%;
   max-height: 75vh;
-  border-radius: 8px;
-  box-shadow: 0 0 24px rgba(255,255,255,0.2);
   display: block;
+   /* Rahmen wie main */
+  border-radius: 8px;
+  box-shadow: 0 0 16px #fff;
+  background: rgba(0,0,0,0.2);  /* ganz leicht, optional */
+  overflow: hidden;
 }
 
 #lightbox_caption {
-  margin-top: 8px;
-  text-align: center;
-  color: #fff;
+  margin: 8px auto 0;      /* mittig unter dem Bild */
+  display: inline-block;   /* Box nur so breit wie der Text */
+
+  /* Stil an h2 angelehnt */
+  padding: 0 12px;
+  border-radius: 8px;
+  box-shadow: 0 0 16px #fff;
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  text-shadow: 0 0 8px #fff;
+  font-size: 1.1rem;       /* kleiner als h2 */
   line-height: 1.4;
 }
+
+
 #close_btn,
 #prev_btn,
 #next_btn {
-  position: absolute;                  /* relativ zum #lightbox-Overlay */
+  position: absolute;
+  /* relativ zum #lightbox-Overlay */
   top: 50%;
   transform: translateY(-50%);
   border: none;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   color: #fff;
   font-size: 24px;
   line-height: 1;
@@ -175,28 +211,28 @@ main {
 }
 
 /* Positionen */
-#close_btn { 
-  top: 24px; 
-  right: 24px; 
+#close_btn {
+  top: 24px;
+  right: 24px;
 }
 
-#prev_btn  { 
-  left: 24px; 
-  top: 50%; 
-  transform: translateY(-50%); 
+#prev_btn {
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-#next_btn  { 
-  right: 24px; 
-  top: 50%; 
-  transform: translateY(-50%); 
+#next_btn {
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* Hover-Feedback */
 #close_btn:hover,
 #prev_btn:hover,
 #next_btn:hover {
-  background: rgba(255,255,255,0.25);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 
@@ -204,6 +240,15 @@ main {
 
 /**** responsiveness *****/
 @media (max-width: 520px) {
-  #close_btn, #prev_btn, #next_btn { font-size: 20px; padding: 8px 12px; }
-  #lightbox_img { max-height: 65vh; }
+
+  #close_btn,
+  #prev_btn,
+  #next_btn {
+    font-size: 20px;
+    padding: 8px 12px;
+  }
+
+  #lightbox_img {
+    max-height: 65vh;
+  }
 }
