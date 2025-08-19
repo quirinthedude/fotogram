@@ -6,7 +6,8 @@
 }
 
 html {
-  font-size: 16px; /* Basis für Rems */
+  font-size: 16px;
+  /* Basis für Rems */
 }
 
 body {
@@ -41,45 +42,51 @@ img {
 /* header */
 header {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   height: 128px;
 }
 
 .fotogram_logo {
-  height: 112px;
+  padding: 4%;
+  height: 128px;
   width: auto;
 }
+
 /* main */
 main {
-  border-radius: 8px; 
+  border-radius: 8px;
   box-sizing: border-box;
   box-shadow: 0 0 16px #fff;
   margin: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 /* section gallery */
 .gallery {
   width: min(1200px, 100%);
-  /* margin-inline: auto; */
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 24px;
-
+  text-align: center;
 }
 
 .gallery h2 {
-  text-align: center;
-  text-shadow: 0 0 8px #fff;
-  border: 0px solid #fff;
+  display: block;
+  width: max-content;
+  /* schrumpft auf Textbreite */
+  margin: -16px auto 16px;
+  /* und zentriert als Block */
+  padding: 0 12px;
+
   border-radius: 8px;
   box-shadow: 0 0 16px #fff;
-  display: inline-block;   /* Box nur so breit wie der Text */
-  padding: 0 12px;         /* etwas Luft links/rechts */
-  margin-top: -56px;       /* hochziehen in den Rahmen */
-  background: rgba(255, 255, 255, 0.9);        /* gleicht den Hintergrund vom main */
-  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
   color: #000;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  text-shadow: 0 0 8px #fff;
 }
 
 #thumbnail_container {
@@ -117,6 +124,7 @@ main {
 #thumbnail_container figure {
   margin: 0;
 }
+
 /* thumbnail braucht keine Beschreibung und nicht noch mehr Abstand */
 #thumbnail_container figcaption {
   display: none;
@@ -125,17 +133,18 @@ main {
 /*   dialog-style */
 /* Dialog Lightbox */
 dialog::backdrop {
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 dialog#lightbox {
+  position: fixed;
   border: none;
   padding: 0;
   max-width: 90vw;
   max-height: 90vh;
   border-radius: 8px;
-  background: transparent;        /* Rahmen unsichtbar; wir layouten innen */
-  display: grid;
+  background: transparent;
+  /* Rahmen unsichtbar; wir layouten innen */
   place-items: center;
 }
 
@@ -143,29 +152,44 @@ dialog#lightbox figure {
   max-width: min(90vw, 1200px);
   max-height: 85vh;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #lightbox_img {
+  grid-area: 1 / 1;
   max-width: 100%;
   max-height: 75vh;
   border-radius: 8px;
-  box-shadow: 0 0 24px rgba(255,255,255,0.2);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.2);
   display: block;
+  border-radius: 8px;
+  box-shadow: 0 0 16px #fff;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
 }
 
 #lightbox_caption {
   margin-top: 8px;
   text-align: center;
-  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 16px #fff;
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+}
+
+.media {
+  display: grid;
 }
 
 /* Buttons */
 #close_btn,
 #prev_btn,
 #next_btn {
-  position: fixed;                 /* relativ zum Viewport, damit Deckkraftbestechung passt */
+  grid-area: 1/1;
   border: none;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   color: #fff;
   font-size: 24px;
   line-height: 1;
@@ -173,13 +197,68 @@ dialog#lightbox figure {
   border-radius: 8px;
   cursor: pointer;
   backdrop-filter: blur(4px);
+  z-index: 2;
+  pointer-events: auto;
 }
 
-#close_btn { top: 24px; right: 24px; }
-#prev_btn  { left: 24px; top: 50%; transform: translateY(-50%); }
-#next_btn  { right: 24px; top: 50%; transform: translateY(-50%); }
+#close_btn {
+  margin: 8px;
+  justify-self: end;
+  align-self: start;
+}
+
+#prev_btn {
+  margin-left: 8px;
+  justify-self: start;
+  align-self: center;
+}
+
+#next_btn {
+  margin-right: 8px;
+  justify-self: end;
+  align-self: center;
+}
+
+#close_btn:focus,
+#prev_btn:focus,
+#next_btn:focus {
+  outline: 2px solid #fff;
+  /* weißer Rahmen */
+  outline-offset: 2px;
+  /* Abstand zum Button-Rand */
+}
 
 #close_btn:hover,
 #prev_btn:hover,
-#next_btn:hover { background: rgba(255,255,255,0.25); }
+#next_btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Backdrop bleibt wie gehabt */
+dialog#lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Basis-Style ohne Rendering */
+dialog#lightbox {
+  border: none;
+  padding: 0;
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  background: transparent;
+}
+
+/* WICHTIG: Nur wenn open, rendern wir das Grid */
+dialog#lightbox[open] {
+  /* display: grid; */
+  inset: 0;
+  margin: auto;
+}
+
+/* Sicherheitsnetz: geschlossener Dialog ist garantiert unsichtbar */
+dialog#lightbox:not([open]) {
+  display: none !important;
+}
+
 /* end of dialog */
