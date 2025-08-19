@@ -33,16 +33,18 @@
     </section>
 
     <aside id="lightbox" hidden>
-      <button id="close_btn" aria-label="Detailansicht schließen" onclick="closeLightbox()">×</button>
       <figure>
-        <img id="lightbox_img" src="" alt="">
+        <div class="media">
+          <img id="lightbox_img" src="" alt="">
+          <button id="close_btn" aria-label="Detailansicht schließen" onclick="closeLightbox()">×</button>
+          <button id="prev_btn" aria-label="Vorheriges Bild" onclick="prevButton()">⟨</button>
+          <button id="next_btn" aria-label="Nächstes Bild" onclick="nextButton()">⟩</button>
+        </div>
         <figcaption id="lightbox_caption"></figcaption>
       </figure>
-      <button id="prev_btn" aria-label="Vorheriges Bild" onclick="prevButton()">⟨</button>
-      <button id="next_btn" aria-label="Nächstes Bild" onclick="nextButton()">⟩</button>
     </aside>
 
-  
+
   </main>
 
   <footer>

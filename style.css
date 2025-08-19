@@ -13,7 +13,7 @@ html {
 body {
   font-family: sans-serif;
   line-height: 1.5;
-  color: #ffff;
+  color: #fff;
   background: #000;
 }
 
@@ -137,115 +137,113 @@ main {
   display: none !important;
 }
 
-/* falls dein globales [hidden] fehlt */
-
 #lightbox {
   position: fixed;
   inset: 0;
-  /* top/right/bottom/left: 0 */
   background: rgba(0, 0, 0, 0.8);
-  /* dunkler Hintergrund */
   display: grid;
   place-items: center;
-  /* Inhalt zentrieren */
   padding: 24px;
   z-index: 1000;
-  /* über Header/Footer */
 }
 
+/* Figure: Bild-Block + Caption darunter */
 #lightbox figure {
-  position: relative;
-  max-width: min(90vw, 1200px);
-  max-height: 85vh;
-  margin: 0;
-
-  text-align: center; /* hilft, Caption mittig zu setzen (s.u.) */
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 12px;
+  margin: 0;
+  max-width: min(90vw, 1200px);
+  max-height: 85vh;
+  text-align: center;
 }
 
+/* === Der Bild-Container als 1x1-Grid (Overlay-Prinzip) === */
+.media {
+  display: grid;
+  /* eine einzige Zelle */
+}
+
+/* Bild bestimmt die Größe des Containers */
 #lightbox_img {
+  grid-area: 1 / 1;
+  /* gleiche Zelle wie Buttons */
   max-width: 100%;
   max-height: 75vh;
   display: block;
-   /* Rahmen wie main */
   border-radius: 8px;
   box-shadow: 0 0 16px #fff;
-  background: rgba(0,0,0,0.2);  /* ganz leicht, optional */
-  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
 }
 
-#lightbox_caption {
-  margin: 8px auto 0;      /* mittig unter dem Bild */
-  display: inline-block;   /* Box nur so breit wie der Text */
-
-  /* Stil an h2 angelehnt */
-  padding: 0 12px;
-  border-radius: 8px;
-  box-shadow: 0 0 16px #fff;
-  background: rgba(255, 255, 255, 0.9);
-  color: #000;
-  text-shadow: 0 0 8px #fff;
-  font-size: 1.1rem;       /* kleiner als h2 */
-  line-height: 1.4;
+/* Buttons liegen in derselben Grid-Zelle und kleben an den Rändern */
+#prev_btn {
+  grid-area: 1 / 1;
+  justify-self: start;
+  align-self: center;
+  margin-left: 8px;
 }
 
+#next_btn {
+  grid-area: 1 / 1;
+  justify-self: end;
+  align-self: center;
+  margin-right: 8px;
+}
 
+#close_btn {
+  grid-area: 1 / 1;
+  justify-self: end;
+  align-self: start;
+  margin: 8px;
+}
+
+/* Einheitlicher Button-Look */
 #close_btn,
 #prev_btn,
 #next_btn {
-  position: absolute;
-  /* relativ zum #lightbox-Overlay */
-  top: 50%;
-  transform: translateY(-50%);
   border: none;
   background: rgba(255, 255, 255, 0.15);
   color: #fff;
   font-size: 24px;
   line-height: 1;
-  padding: 10px 14px;
+  padding: 8px 12px;
   border-radius: 8px;
   cursor: pointer;
   backdrop-filter: blur(4px);
+  transition: background 0.2s ease;
 }
 
-/* Positionen */
-#close_btn {
-  top: 24px;
-  right: 24px;
-}
-
-#prev_btn {
-  left: 24px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#next_btn {
-  right: 24px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-/* Hover-Feedback */
 #close_btn:hover,
 #prev_btn:hover,
 #next_btn:hover {
   background: rgba(255, 255, 255, 0.25);
 }
 
+#lightbox_caption {
+  margin: 0;
+  padding: 0 12px;
+  max-width: 100%;
+  display: inline-block;
 
+  border-radius: 8px;
+  box-shadow: 0 0 16px #fff;
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  text-shadow: 0 0 8px #fff;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
 
-
-/**** responsiveness *****/
+/* responsiveness */
 @media (max-width: 520px) {
 
   #close_btn,
   #prev_btn,
   #next_btn {
     font-size: 20px;
-    padding: 8px 12px;
+    padding: 6px 10px;
   }
 
   #lightbox_img {
