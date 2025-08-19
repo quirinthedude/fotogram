@@ -116,9 +116,18 @@ main {
 
 }
 
+#thumbnail_container img article:hover {
+  box-shadow: 0 0 16px #fff;
+}
+
+#thumbnail_container img article {
+  transition: transform .2s ease;
+
+}
+
 #thumbnail_container img:hover {
   transform: scale(1.1);
-
+  cursor: pointer;
 }
 
 #thumbnail_container figure {
@@ -144,7 +153,6 @@ dialog#lightbox {
   max-height: 90vh;
   border-radius: 8px;
   background: transparent;
-  /* Rahmen unsichtbar; wir layouten innen */
   place-items: center;
 }
 
@@ -234,7 +242,6 @@ dialog#lightbox figure {
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* Backdrop bleibt wie gehabt */
 dialog#lightbox::backdrop {
   background: rgba(0, 0, 0, 0.8);
 }
@@ -249,9 +256,8 @@ dialog#lightbox {
   background: transparent;
 }
 
-/* WICHTIG: Nur wenn open, rendern wir das Grid */
+
 dialog#lightbox[open] {
-  /* display: grid; */
   inset: 0;
   margin: auto;
 }
