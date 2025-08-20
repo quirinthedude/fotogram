@@ -42,7 +42,7 @@
       <button id="next-btn" aria-label="Nächstes Bild" onclick="nextButton()">⟩</button>
     </aside> -->
 
-    <dialog id="lightbox" onclick="if (event.target === this) closeLightbox()">
+    <dialog id="lightbox" aria-modal="true" role="dialog" aria-labelledby="lightbox_caption" onclick="if (event.target === this) closeLightbox()">
       <figure>
         <div class="media">
           <img id="lightbox_img" alt="">
