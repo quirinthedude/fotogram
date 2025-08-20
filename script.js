@@ -138,6 +138,12 @@ const IMAGES = [
 
 const THUMBNAIL = document.getElementById('thumbnail_container');
 let currentObject = 0;
+document.addEventListener('keydown', function(downKey) {
+    if (!lightbox.open) return;
+    if (downKey.repeat) return;
+    if (downKey.key === 'ArrowLeft') {prevButton();}
+    if (downKey.key === 'ArrowRight') {nextButton();}
+})
 
 function thumbPath(fullScreen) {
     // img/full/x.jpeg -> img/thumbs/x.jpeg //
@@ -206,8 +212,9 @@ function renderGallery() {
 
 
 function ensureDialogOpen(dlg) {
-  if (!dlg.open) dlg.showModal();      // wir nutzen Modal mit Backdrop
+  if (!dlg.open) dlg.showModal();      
 }
+
 
 function openByIndex(i) {
   currentObject = Number(i);
@@ -241,7 +248,6 @@ function closeLightbox() {
   if (DLG.open) DLG.close();
 }
 
-// Navigation (wie gehabt)
 function changeImage(step) {
   currentObject = (currentObject + step + IMAGES.length) % IMAGES.length;
   openByIndex(currentObject);

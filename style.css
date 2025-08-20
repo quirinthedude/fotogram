@@ -13,7 +13,7 @@ html {
 body {
   font-family: sans-serif;
   line-height: 1.5;
-  color: #ffff;
+  color: #fff;
   background: #000;
 }
 
@@ -42,20 +42,22 @@ img {
 /* header */
 header {
   display: flex;
-  justify-content: left;
-  height: 128px;
+  justify-content: flex-start;
+  height: 80px;
 }
 
 .fotogram_logo {
-  padding: 4%;
-  height: 128px;
+  margin: 16px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  height: 64px;
   width: auto;
+  max-width: 80%;
 }
 
 /* main */
 main {
   border-radius: 8px;
-  box-sizing: border-box;
   box-shadow: 0 0 16px #fff;
   margin: 16px;
   display: flex;
@@ -67,15 +69,13 @@ main {
 /* section gallery */
 .gallery {
   width: min(1200px, 100%);
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-bottom: 24px;
+  padding: 0px 24px 24px;
   text-align: center;
 }
 
 .gallery h2 {
-  display: block;
-  width: max-content;
+  display: inline-block;
+  /* width: max-content; */
   /* schrumpft auf Textbreite */
   margin: -16px auto 16px;
   /* und zentriert als Block */
@@ -87,6 +87,8 @@ main {
   color: #000;
   font-size: 1.5rem;
   text-shadow: 0 0 8px #fff;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 #thumbnail_container {
@@ -102,7 +104,7 @@ main {
   overflow: hidden;
   border-radius: 8px;
   background-color: #111;
-
+  transition: transform .2s ease;
 }
 
 #thumbnail_container img {
@@ -116,13 +118,8 @@ main {
 
 }
 
-#thumbnail_container img article:hover {
+#thumbnail_container article:hover {
   box-shadow: 0 0 16px #fff;
-}
-
-#thumbnail_container img article {
-  transition: transform .2s ease;
-
 }
 
 #thumbnail_container img:hover {
@@ -139,47 +136,22 @@ main {
   display: none;
 }
 
-/*   dialog-style */
-/* Dialog Lightbox */
-dialog::backdrop {
-  background: rgba(0, 0, 0, 0.8);
-}
-
-dialog#lightbox {
-  position: fixed;
-  border: none;
-  padding: 0;
-  max-width: 90vw;
-  max-height: 90vh;
-  border-radius: 8px;
-  background: transparent;
-  place-items: center;
-}
-
-dialog#lightbox figure {
-  max-width: min(90vw, 1200px);
-  max-height: 85vh;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 #lightbox_img {
   grid-area: 1 / 1;
   max-width: 100%;
   max-height: 75vh;
-  border-radius: 8px;
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.2);
   display: block;
   border-radius: 8px;
   box-shadow: 0 0 16px #fff;
   background: rgba(0, 0, 0, 0.2);
   pointer-events: none;
+  margin-top: 8px;
 }
 
 #lightbox_caption {
-  margin-top: 8px;
+  margin: 16 8px 8px;
+  padding-left: 4px;
+  padding-right: 4px;
   text-align: center;
   border-radius: 8px;
   box-shadow: 0 0 16px #fff;
@@ -195,7 +167,7 @@ dialog#lightbox figure {
 #close_btn,
 #prev_btn,
 #next_btn {
-  grid-area: 1/1;
+  grid-area: 1 / 1;
   border: none;
   background: rgba(255, 255, 255, 0.15);
   color: #fff;
@@ -243,28 +215,44 @@ dialog#lightbox figure {
 }
 
 dialog#lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.0);
+  transition: background 0.8s ease;
+}
+
+dialog#lightbox[open]::backdrop {
   background: rgba(0, 0, 0, 0.8);
 }
 
-/* Basis-Style ohne Rendering */
-dialog#lightbox {
-  border: none;
-  padding: 0;
+dialog#lightbox[open] {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  display: grid;
+  place-items: center;
   max-width: 90vw;
   max-height: 90vh;
   border-radius: 8px;
-  background: transparent;
-}
-
-
-dialog#lightbox[open] {
-  inset: 0;
-  margin: auto;
 }
 
 /* Sicherheitsnetz: geschlossener Dialog ist garantiert unsichtbar */
 dialog#lightbox:not([open]) {
   display: none !important;
 }
+
+dialog#lightbox {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+dialog#lightbox figure {
+  max-width: min(90vw, 1200px);
+  max-height: 85vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 /* end of dialog */
