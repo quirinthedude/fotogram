@@ -75,7 +75,7 @@ main {
 
 .gallery h2 {
   display: inline-block;
-  /* width: max-content; */
+  max-width: 70vw;
   /* schrumpft auf Textbreite */
   margin: -16px auto 16px;
   /* und zentriert als Block */
